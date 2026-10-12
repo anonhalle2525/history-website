@@ -285,4 +285,1830 @@ h1:focus {
   #nav a {
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    border-radius: var(--radius-sm
+    border-radius: var(--radius-sm);
+  }
+}
+
+@keyframes menuSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   PAGE HEADERS & EDITORIAL STRUCTURE
+   ========================================================================== */
+[data-page] {
+  padding-block: clamp(2.5rem, 5.5vw, 4.5rem) clamp(3rem, 6vw, 5rem);
+  animation: pageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.pagehead {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.5rem;
+}
+
+.pagehead h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+  max-width: 24ch;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 44rem;
+  margin: 1.25rem 0 0;
+  font-weight: 400;
+}
+
+.byline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  margin: 1.25rem 0 0;
+  border: 1px solid var(--accent-border);
+}
+
+.byline::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 13.5rem minmax(0, 1fr);
+  gap: 2rem 3.5rem;
+  border-top: 1px solid var(--rule);
+  padding-block: 2.75rem;
+  margin-top: 0;
+}
+
+.block:first-of-type {
+  border-top: none;
+  padding-top: 1.5rem;
+}
+
+.block > h2 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+}
+
+.body > p,
+.body > .prose {
+  max-width: 44rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.body > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .block {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-block: 2rem;
+  }
+  .block > h2 {
+    position: static;
+  }
+}
+
+.mini {
+  font: 700 0.8rem/1.3 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ochre);
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   HERO & HOME SECTION
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+  gap: 3.5rem;
+  align-items: center;
+  padding-block: 1rem 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 5.5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.hero h1 span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.38em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-top: 0.85rem;
+}
+
+.names {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--paper-card);
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-sm);
+  margin: 1.5rem 0 2rem;
+}
+
+.names::before {
+  content: "👥";
+  font-size: 0.85rem;
+}
+
+.question {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 36rem;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper-card);
+  padding: 1.35rem 1.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.claim {
+  margin-top: 1.75rem;
+  padding: 1.35rem 1.6rem;
+  background: var(--paper-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--ochre);
+  box-shadow: var(--shadow-sm);
+  max-width: 36rem;
+}
+
+.claim p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(28, 76, 130, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn::after {
+  content: "→";
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent-deep);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(28, 76, 130, 0.36);
+}
+
+.btn:hover::after {
+  transform: translateX(3px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.link-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  padding: 0.25rem 0.65rem;
+  margin-left: 0.75rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.link-btn::before {
+  content: "↺";
+  font-size: 0.95rem;
+}
+
+.link-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.euclid {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(rgba(28, 76, 130, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.euclid svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 2px 8px rgba(28, 76, 130, 0.08));
+}
+
+.euclid .circ {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.75;
+}
+
+.euclid .side {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.euclid .pt circle {
+  fill: var(--ink);
+}
+
+.euclid .pt.c circle {
+  fill: var(--ochre);
+}
+
+.euclid .pt text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  fill: var(--ink);
+}
+
+.draw {
+  stroke-dasharray: 1;
+}
+
+.play .draw {
+  animation: draw var(--d) var(--delay) ease-in-out both;
+}
+
+.play .pt {
+  animation: fade 0.6s var(--delay) both;
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 920px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   BLOCKQUOTES & SCHOLARLY CITATIONS
+   ========================================================================= */
+blockquote {
+  position: relative;
+  margin: 1.75rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--paper-subtle);
+  border-left: 4px solid var(--ochre);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: var(--shadow-sm);
+  max-width: 44rem;
+}
+
+blockquote::before {
+  content: "“";
+  position: absolute;
+  top: -0.3rem;
+  right: 1.25rem;
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--ochre);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+blockquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.22rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+
+blockquote footer {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  font-style: normal;
+}
+
+.src {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-3);
+  max-width: 44rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--paper-subtle);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+}
+
+.src strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   BEFORE & AFTER COMPARISONS
+   ========================================================================== */
+.shifts {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 44rem;
+}
+
+.shift {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.shift h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 1rem 1.4rem;
+  background: var(--paper-subtle);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+}
+
+.shift-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.shift-grid > div {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.shift-grid .before {
+  background: rgba(243, 239, 231, 0.45);
+}
+
+.shift-grid .after {
+  background: rgba(28, 76, 130, 0.025);
+  border-left: 2px solid var(--accent);
+}
+
+.shift-grid p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.shift-grid .lab {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  margin-bottom: 0.4rem;
+}
+
+.shift-grid .before .lab {
+  color: var(--ochre-deep);
+  background: var(--ochre-soft);
+  border: 1px solid var(--ochre-border);
+}
+
+.shift-grid .after .lab {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+}
+
+.shift-grid .before p {
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .shift-grid {
+    grid-template-columns: 1fr;
+  }
+  .shift-grid .after {
+    border-left: none;
+    border-top: 2px solid var(--accent);
+  }
+}
+
+/* ==========================================================================
+   VERTICAL TIMELINE
+   ========================================================================== */
+.timeline {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  position: relative;
+  max-width: 44rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8.5rem;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 2px;
+  background: var(--rule);
+  z-index: 1;
+}
+
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 2.25rem;
+  padding: 0.85rem 0;
+  border: none;
+  align-items: center;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(8.5rem - 5px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper-card);
+  border: 2.5px solid var(--accent);
+  z-index: 2;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 2px var(--paper);
+}
+
+.timeline li:hover::before {
+  background: var(--accent);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.timeline time {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.timeline p {
+  margin: 0;
+  background: var(--paper-card);
+  padding: 1.1rem 1.35rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  transition: all 0.2s ease;
+}
+
+.timeline li:hover p {
+  box-shadow: var(--shadow-card);
+  border-color: var(--accent-border);
+}
+
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 0.6rem;
+  }
+  .timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding-left: 2rem;
+  }
+  .timeline li::before {
+    left: calc(0.6rem - 5px);
+    top: 1.6rem;
+  }
+  .timeline time {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   FIGURES & IMAGES
+   ========================================================================== */
+figure {
+  margin: 1.5rem 0;
+}
+
+.fig-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--rule);
+  background: var(--paper-card);
+}
+
+figcaption {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin-top: 0.65rem;
+  max-width: 44rem;
+}
+
+figcaption em {
+  color: var(--ink-2);
+}
+
+.ph {
+  aspect-ratio: 16/10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: 2rem;
+  background: var(--paper-subtle);
+  border: 2px dashed #C5BEB0;
+  border-radius: var(--radius-md);
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  font-weight: 500;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.ph::before {
+  content: "🏛️ [Historical Archive Item]";
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.figpair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .figpair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   TABLE COMPONENT (Impact & Change)
+   ========================================================================== */
+.tbl {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-block: 0.5rem 1.5rem;
+}
+
+.tbl th,
+.tbl td {
+  text-align: left;
+  vertical-align: top;
+  padding: 1.25rem 1.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.tbl thead th {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  background: var(--paper-subtle);
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tbl tbody th {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--accent);
+  width: 12rem;
+  background: rgba(243, 239, 231, 0.3);
+}
+
+.tbl td {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.tbl tbody tr:first-child th,
+.tbl tbody tr:first-child td {
+  border-top: none;
+}
+
+.tbl tbody tr:hover th,
+.tbl tbody tr:hover td {
+  background: rgba(28, 76, 130, 0.015);
+}
+
+.tbl ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+@media (max-width: 720px) {
+  .tbl thead {
+    position: absolute;
+    left: -999px;
+  }
+  .tbl, .tbl tbody, .tbl tr, .tbl th, .tbl td {
+    display: block;
+    width: auto;
+  }
+  .tbl tr {
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+  }
+  .tbl tr:last-child {
+    border-bottom: none;
+  }
+  .tbl tbody th {
+    padding: 0.75rem 1.25rem 0.25rem;
+    border-top: none;
+    background: transparent;
+    font-size: 1.25rem;
+  }
+  .tbl td {
+    padding: 0.5rem 1.25rem;
+    border: none;
+  }
+  .tbl td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   MACEDONIAN PHALANX INTERACTIVE EXHIBIT
+   ========================================================================== */
+.sizes {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin: 0 0 1.5rem;
+  padding: 4px;
+  background: var(--paper-subtle);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+}
+
+.sizes button {
+  font: 600 0.88rem var(--sans);
+  padding: 0.45rem 1.1rem;
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sizes button:hover {
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.sizes button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(28, 76, 130, 0.32);
+}
+
+.phalanx {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: minmax(0, 320px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.phalanx svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background: #0E1622;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.phalanx .front {
+  fill: #4E95FF;
+  filter: drop-shadow(0 0 3px rgba(78, 149, 255, 0.7));
+}
+
+.phalanx .rear {
+  fill: #828F9E;
+  opacity: 0.75;
+}
+
+#phalanx-count {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+
+.legend {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.25rem;
+  background: var(--paper-subtle);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  font-size: 0.92rem;
+}
+
+.legend li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: var(--ink-2);
+}
+
+.legend li:last-child {
+  margin-bottom: 0;
+}
+
+.legend i {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 760px) {
+  .phalanx {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roles {
+  margin: 0;
+  max-width: 44rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.roles div {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.35rem;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  box-shadow: var(--shadow-sm);
+}
+
+.roles dt {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.roles dd {
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+@media (max-width: 540px) {
+  .roles div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   PERSPECTIVES ARTICLES
+   ========================================================================== */
+.persp {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+.persp:first-of-type {
+  margin-top: 1rem;
+}
+
+.persp h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  color: var(--ink);
+}
+
+.persp figure {
+  margin-top: 1.5rem;
+}
+
+.persp blockquote {
+  margin-top: 0;
+}
+
+@media (max-width: 860px) {
+  .persp {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   EFFECTS CHAIN
+   ========================================================================== */
+.chain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 46rem;
+}
+
+.chain > div {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.chain h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chain .short h3 {
+  color: var(--accent);
+}
+
+.chain .long h3 {
+  color: var(--ochre-deep);
+}
+
+.steps {
+  display: grid;
+  gap: 1rem;
+}
+
+.step {
+  background: var(--paper-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  position: relative;
+}
+
+.step h4 {
+  font: 600 1.05rem var(--serif);
+  margin: 0 0 0.3rem;
+  color: var(--ink);
+}
+
+.step p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.chain .long .step {
+  border-left-color: var(--ochre);
+}
+
+@media (max-width: 800px) {
+  .chain {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   VERDICT & HISTORICAL JUDGMENT
+   ========================================================================== */
+.verdict-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.8vw, 1.95rem);
+  line-height: 1.45;
+  color: var(--ink);
+  font-weight: 500;
+  background: var(--paper-card);
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--accent);
+  box-shadow: var(--shadow-card);
+  max-width: 44rem;
+  margin: 0 0 2rem;
+}
+
+/* ==========================================================================
+   ANNOTATED BIBLIOGRAPHY & SOURCES
+   ========================================================================== */
+.bib {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.95rem;
+  max-width: 46rem;
+}
+
+.bib li {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.bib li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--accent-border);
+}
+
+.bib a {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  display: inline-block;
+}
+
+.bib a:hover {
+  text-decoration: underline;
+  color: var(--accent-deep);
+}
+
+.bib p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* ==========================================================================
+   PAGE NAVIGATION PAGER & FOOTER
+   ========================================================================== */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 4.5rem;
+  padding-top: 2.25rem;
+}
+
+.pager a {
+  flex: 1;
+  max-width: 320px;
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.pager a:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  background: #ffffff;
+}
+
+.pager small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.pager span {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.pager .prev::before {
+  content: "← ";
+  color: var(--accent);
+}
+
+.pager .next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.pager .next::after {
+  content: " →";
+  color: var(--accent);
+}
+
+.foot {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-subtle);
+  padding: 2.5rem 0;
+  color: var(--ink-3);
+  font-size: 0.92rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .play .draw,
+  .play .pt {
+    animation: none;
+  }
+  [data-page] {
+    animation: none;
+  }
+}
+</style>
+<noscript><style>[data-page]{display:block!important}</style></noscript>
+</head>
+
+<body>
+<a class="skip" href="#main" id="skip">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#/home">Hellenistic Math &amp; Science</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#/home" data-link="home">Home</a></li>
+        <li><a href="#/context" data-link="context">Context</a></li>
+        <li><a href="#/innovation" data-link="innovation">Innovation</a></li>
+        <li><a href="#/impact" data-link="impact">Impact</a></li>
+        <li><a href="#/perspectives" data-link="perspectives">Perspectives</a></li>
+        <li><a href="#/effects" data-link="effects">Effects</a></li>
+        <li><a href="#/verdict" data-link="verdict">Verdict</a></li>
+        <li><a href="#/sources" data-link="sources">Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ HOME ============ -->
+<section data-page="home" data-title="Home" hidden>
+  <div class="wrap hero">
+    <div>
+      <h1 tabindex="-1">Hellenistic Culture:<span>The Advanced Mathematics and Science</span></h1>
+      <p class="names">Elisa, Lily, Haeum, Steve, and Brandon</p>
+
+      <h2 class="mini">Historical question</h2>
+      <p class="question">How did the illumination of mathematics and science transform the initial ideas and reform the life of people during the Hellenistic period?</p>
+
+      <div class="claim">
+        <h2 class="mini">Our claim</h2>
+        <p>New discoveries in mathematics and science updated the original concepts and reformed people’s lives during the Hellenistic period. They changed undetermined hypotheses into verified theories that gave logical explanations of universal knowledge, and they remain influential in the study of mathematics and science today.</p>
+      </div>
+      <a class="btn" href="#/context">Start with the historical context</a>
+    </div>
+
+    <figure class="euclid">
+      <svg id="euclid-svg" class="play" viewBox="-110 40 820 580" role="img" aria-label="Euclid's construction of an equilateral triangle from two overlapping circles drawn on a line">
+        <line class="side draw" x1="170" y1="330" x2="430" y2="330" pathLength="1" style="--d:.9s;--delay:.2s"/>
+        <circle class="circ draw" cx="170" cy="330" r="260" pathLength="1" style="--d:1.5s;--delay:1.1s"/>
+        <circle class="circ draw" cx="430" cy="330" r="260" pathLength="1" style="--d:1.5s;--delay:2.6s"/>
+        <line class="side draw" x1="170" y1="330" x2="300" y2="104.8" pathLength="1" style="--d:.8s;--delay:4.1s"/>
+        <line class="side draw" x1="430" y1="330" x2="300" y2="104.8" pathLength="1" style="--d:.8s;--delay:4.9s"/>
+        <g class="pt" style="--delay:.2s"><circle cx="170" cy="330" r="6"/><text x="140" y="368">A</text></g>
+        <g class="pt" style="--delay:1s"><circle cx="430" cy="330" r="6"/><text x="446" y="368">B</text></g>
+        <g class="pt c" style="--delay:4s"><circle cx="300" cy="104.8" r="7"/><text x="288" y="82">C</text></g>
+      </svg>
+      <figcaption>Euclid’s <em>Elements</em>, Book I, Proposition 1: build an equilateral triangle from a line and two circles. Each step follows from the one before it.<button class="link-btn" type="button" id="replay">Replay drawing</button></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CONTEXT ============ -->
+<section data-page="context" data-title="Historical Context" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Historical context</h1>
+      <p class="lede">Before Alexander’s conquests, myth explained much of the world. Afterward, Greek learning met knowledge from Egypt, Persia, and other cultures, and calculation began to replace legend.</p>
+      <p class="byline">Page by Elisa</p>
+    </div>
+
+    <div class="block">
+      <h2>Before the innovation</h2>
+      <div class="body">
+        <p>Before the Hellenistic period, people relied on myths to explain the earth, time, health, and nature. This left daily life unsettled, because myths were not always correct or accurate.</p>
+        <p>After Alexander’s conquests, Hellenistic scientific development changed that approach by improving science and technology. People began to explain things using science, and Greek culture mixed with knowledge from Egypt, Persia, and other cultures.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>The effect of the innovation</h2>
+      <div class="body">
+        <p>As discoveries about the universe and mathematics grew, people could rely on calculated results and repeatable patterns instead of myths and legends that could not be trusted every time.</p>
+        <p>The Hellenistic period is widely known for the growth of new innovations that made daily life easier.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Before and after</h2>
+      <div class="body shifts">
+        <div class="shift">
+          <h3>Predicting the seasons</h3>
+          <div class="shift-grid">
+            <div class="before"><span class="lab">Before</span><p>Farmers relied on the myth of Demeter to predict the seasons.</p></div>
+            <div class="after"><span class="lab">After</span><p>Agriculture could expand because of the mathematical calendars made by Meton and Hipparchus.</p></div>
+          </div>
+        </div>
+        <div class="shift">
+          <h3>Travel and maps</h3>
+          <div class="shift-grid">
+            <div class="before"><span class="lab">Before</span><p>People were afraid to travel far, unsure what lay beyond the boundaries of the known world.</p></div>
+            <div class="after"><span class="lab">After</span><p>Eratosthenes worked out the Earth’s circumference using the geometry of shadows, which allowed people to make maps, grids, and navigation tools.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Evidence</h2>
+      <div class="body">
+        <blockquote>
+          <p>“a fixed scheme of intercalation of months”</p>
+          <footer>G. J. Toomer’s description of Meton’s 19-year cycle (Toomer 12).</footer>
+        </blockquote>
+        <figure>
+          <img class="fig-img" src="images/mathematical-calendar.jpg" alt="A diagram of a mathematical calendar from Greek astronomy">
+          <figcaption>Mathematical calendar. Image: World History Encyclopedia, “Greek Astronomy.”</figcaption>
+        </figure>
+        <p class="src" style="margin-top:1.25rem"><strong>Sources:</strong> Linda Hall Library on Eratosthenes (secondary); Ptolemy’s <em>Almagest</em>, translated by Toomer (primary); World History Encyclopedia, “Greek Astronomy.” Together they show the improvement of science and mathematics and how it benefited civilization.</p>
+      </div>
+    </div>
+
+    <!-- Dates below were added as a starting point. Check each against your sources before publishing. -->
+    <div class="block">
+      <h2>Timeline</h2>
+      <div class="body">
+        <ol class="timeline">
+          <li><time>c. 432 BCE</time><p>Meton of Athens proposes a 19-year calendar cycle.</p></li>
+          <li><time>334–323 BCE</time><p>Alexander’s campaigns spread Greek rule and learning across Egypt and Persia. The Hellenistic period is usually dated from his death in 323 BCE.</p></li>
+          <li><time>c. 300 BCE</time><p>Euclid organizes earlier mathematics in the <em>Elements</em>.</p></li>
+          <li><time>c. 240 BCE</time><p>Eratosthenes calculates the Earth’s circumference.</p></li>
+          <li><time>212 BCE</time><p>Archimedes dies when Rome captures Syracuse.</p></li>
+          <li><time>Mid-100s BCE</time><p>Hipparchus works on calendar cycles and astronomical tables.</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INNOVATION ============ -->
+<section data-page="innovation" data-title="The Innovation" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">The innovation: the phalanx</h1>
+      <p class="lede">Alexander’s army fought in the Macedonian phalanx, a formation developed in the military reforms of his father, Philip II.</p>
+      <p class="byline">Page by Steve</p>
+    </div>
+    <!-- TODO (Steve): add one or two sentences tying the phalanx to the thesis about math and science (for example, measured ranks and repeatable drill). As written, this page is military history only. -->
+
+    <div class="block">
+      <h2>How it worked</h2>
+      <div class="body">
+        <p>The phalanx was a large square block of soldiers, usually 16 men wide and 16 deep, standing shoulder to shoulder. Depending on the situation it could be smaller, around 8 by 8, or larger, up to 32 by 32.</p>
+        <p>Each man carried a sarissa, a pike about 4 to 6 meters long. The front rows lowered their pikes to make a wall of sharp points, while the rows behind held theirs upward to block arrows, and the whole formation pushed ahead. Each man also carried a small shield and a short sword as backup.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Try the formation</h2>
+      <div class="body">
+        <div class="sizes" role="group" aria-label="Formation size">
+          <button type="button" data-n="8" aria-pressed="false">8 × 8</button>
+          <button type="button" data-n="16" aria-pressed="true">16 × 16</button>
+          <button type="button" data-n="32" aria-pressed="false">32 × 32</button>
+        </div>
+        <div class="phalanx">
+          <svg id="phalanx-grid" viewBox="0 0 320 320" role="img" aria-label="Grid of dots representing the soldiers of a phalanx. The first four rows are highlighted."></svg>
+          <div>
+            <p id="phalanx-count" aria-live="polite" style="font-family:var(--serif);font-size:1.3rem;margin:0"></p>
+            <ul class="legend">
+              <li><i style="background:var(--accent)"></i>First four ranks: sarissas lowered toward the enemy</li>
+              <li><i style="background:#9AA3B2"></i>Rear ranks: sarissas held upward against arrows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Who fought where</h2>
+      <div class="body">
+        <dl class="roles">
+          <div><dt>Phalanx</dt><dd>The main block, armed with the long sarissa.</dd></div>
+          <div><dt>Hypaspists</dt><dd>Elite troops with shorter spears who linked the phalanx to the cavalry.</dd></div>
+          <div><dt>Cavalry</dt><dd>Fought with lances and curved swords.</dd></div>
+          <div><dt>Light troops</dt><dd>Archers and javelin throwers who went in front to start the fight.</dd></div>
+          <div><dt>Reserves</dt><dd>Waited behind to guard against being surrounded.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Evidence</h2>
+      <div class="body">
+        <blockquote>
+          <p>“The sarissa was a perfect weapon for the pezhetairoi, for it extended their reach advantage over the spears of the enemy.”</p>
+          <footer>Wasson, World History Encyclopedia, “Pezhetairoi.”</footer>
+        </blockquote>
+        <figure>
+          <img class="fig-img" src="images/macedonian-phalanx.jpg" alt="Illustration of the Macedonian phalanx showing ranks of soldiers with long pikes">
+          <figcaption>The pattern and combat of the phalanx. Image: World History Encyclopedia, “Macedonian Phalanx.” This helps viewers see how the phalanx worked and why it was effective against enemies.</figcaption>
+        </figure>
+        <p class="src" style="margin-top:1.25rem"><strong>Source:</strong> <a href="https://www.worldhistory.org/Pezhetairoi/">World History Encyclopedia, “Pezhetairoi.”</a> It covers the military reforms of Philip II, the Battle of Issus, and the Battle of Gaugamela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section data-page="impact" data-title="Impact &amp; Change" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Impact and change</h1>
+      <p class="lede">Hellenistic work in astronomy, mathematics, and geography changed how people farmed, learned, and understood the world.</p>
+      <p class="byline">Page by Haeum</p>
+    </div>
+
+    <div class="block">
+      <h2>What changed</h2>
+      <div class="body">
+        <table class="tbl">
+          <thead><tr><th scope="col">Area</th><th scope="col">Change</th><th scope="col">Evidence</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Economic</th>
+              <td data-label="Change">Farmers could farm more easily than before. Astronomy played an important role in ancient Greek society, and calendars built from it guided the farming year.</td>
+              <td data-label="Evidence"><a href="https://researchcommons.waikato.ac.nz/entities/publication/38f02e1e-d5a7-4e13-a9c1-e73bb0861ce6">University of Waikato, on the Athenian calendar</a><br><a href="https://brewminate.com/the-ancient-athenian-calendar/">Brewminate, “The Ancient Athenian Calendar”</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Social</th>
+              <td data-label="Change">Euclid built a theory of mathematics from other people’s ideas, and it became an essential part of learning math in the Hellenistic period and today.</td>
+              <td data-label="Evidence"><a href="https://www.ms.uky.edu/~sohum/ma330/files/Elements.pdf">Euclid, <em>Elements</em> (PDF)</a><br><a href="https://raed.academy/en/history-of-mathematics-elements-of-euclid/">Royal European Academy of Doctors, on the <em>Elements</em></a></td>
+            </tr>
+            <tr>
+              <th scope="row">Geographic and technological</th>
+              <td data-label="Change">Eratosthenes worked out the Earth’s circumference, which helped people draw more accurate and precise maps of the world.</td>
+              <td data-label="Evidence"><a href="https://aps.org/publications/apsnews/200606/history.cfm">APS News, on Eratosthenes</a><br><a href="https://thonyc.wordpress.com/2017/06/29/did-eratosthenes-really-measure-the-size-of-the-earth/">The Renaissance Mathematicus, “Did Eratosthenes really measure the size of the Earth?”</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>How this supports our claim</h2>
+      <div class="body">
+        <p>These sources show how Hellenistic achievements in agriculture, mathematics, and geography improved people’s lives and increased their knowledge of the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERSPECTIVES ============ -->
+<section data-page="perspectives" data-title="Different Perspectives" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Different perspectives</h1>
+      <p class="lede">Soldiers, engineers, scientists, and mathematicians each used Hellenistic discoveries in their own way.</p>
+      <p class="byline">Page by Lily</p>
+    </div>
+    <!-- TODO (Lily): the rubric asks how groups supported, resisted, or were harmed. Consider adding one contrasting voice, such as people on the receiving end of Archimedes' war machines at Syracuse. -->
+
+    <article class="persp">
+      <div>
+        <h2>Military forces</h2>
+        <p>Archimedes’ demonstrations of engineering led to the invention of war machines. They helped military forces and advanced the understanding of mechanics.</p>
+        <figure>
+          <img class="fig-img" src="images/archimedes-ship.jpg" alt="Illustration of Archimedes' ship and machines used for military purposes">
+          <figcaption>Archimedes’ ship, used for military purposes. Image: Myth and Memory.</figcaption>
+        </figure>
+      </div>
+      <div>
+        <blockquote>
+          <p>“According to Plutarch’s Life of Marcellus… Archimedes reportedly used a system of compound pulleys to move a heavily loaded ship with surprisingly little effort. This demonstration impressed the king so much that he asked Archimedes to prepare defensive and offensive machines for siege warfare… suggests that his military engineering grew out of a much broader understanding of mechanics.”</p>
+          <footer><a href="https://mythandmemory.org/military-history/archimedes-war-machines-syracuse/">Myth and Memory</a> (secondary)</footer>
+        </blockquote>
+        <p class="src"><strong>Primary source:</strong> <a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Marcellus*.html">Plutarch, <em>Life of Marcellus</em></a></p>
+      </div>
+    </article>
+
+    <article class="persp">
+      <div>
+        <h2>Scientists and engineers</h2>
+        <p>Scientists could build on Archimedes’ proposals to create innovative machines, adding to the history of invention.</p>
+        <figure>
+          <img class="fig-img" src="images/hero-pneumatica.jpg" alt="Title page of Heronis Alexandrini Spiritalium liber">
+          <figcaption><em>Heronis Alexandrini Spiritalium liber.</em></figcaption>
+        </figure>
+      </div>
+      <div>
+        <blockquote>
+          <p>“Using Archimedes’ ideas, Hellenistic scientists later built a force pump, pneumatic machines, and even a steam engine.”</p>
+          <footer>Textbook (secondary)</footer>
+        </blockquote>
+        <!-- TODO: add the textbook title, author, and page, plus the textbook picture (images/textbook-page.jpg) -->
+        <p class="src"><strong>Primary source:</strong> <a href="https://aqua.ciuhct.org/hydraulic-treatises/pneumatica-of-hero-of-alexandria">Hero of Alexandria, <em>Heronis Alexandrini Spiritalium liber</em></a></p>
+      </div>
+    </article>
+
+    <article class="persp">
+      <div>
+        <h2>Hellenistic scientists</h2>
+        <p>Scientists like Eratosthenes and Archimedes made their own successful attempts to explore astronomy and science, using the ideas Euclid had found to build innovative studies.</p>
+      </div>
+      <div>
+        <blockquote>
+          <p>“The influence of Euclid on later scientists such as Archimedes, Apollonius of Perga, Galileo Galilei, Sir Isaac Newton, and Christiaan Huygens was immense. Eratosthenes used his theorems to measure with surprising accuracy the size of the sphere of Earth, and Aristarchus attempted less successfully, but in fine Euclidean style, to establish the sizes and distances of the moon and the sun.”</p>
+          <footer><a href="https://www.ebsco.com/research-starters/biography/euclid/">EBSCO Research Starters, “Euclid”</a> (secondary)</footer>
+        </blockquote>
+        <p class="src"><strong>Primary source:</strong> Euclid, <em>The Thirteen Books of Euclid’s “Elements,”</em> translated by Thomas Little Heath. Volume 1, commentary notes for Book I, Proposition 29; Introduction, Chapter II; and Preface.</p>
+      </div>
+    </article>
+
+    <article class="persp">
+      <div>
+        <h2>Hellenistic mathematicians</h2>
+        <p>Many Hellenistic mathematicians kept revising mathematics based on Euclid’s discoveries, adding new findings to his work. This improved the field overall and helped later mathematicians make and learn from new discoveries.</p>
+      </div>
+      <div>
+        <blockquote>
+          <p>“Other Hellenistic mathematicians, such as Hero of Alexandria, Pappus, Simplicius, and, most important, Proclus, produced commentaries on the Elements. Theon of Alexandria, father of the famous woman philosopher and mathematician Hypatia, introduced a new edition of the Elements in the fourth century C.E.”</p>
+          <footer><a href="https://www.ebsco.com/research-starters/biography/euclid/">EBSCO Research Starters, “Euclid”</a> (secondary)</footer>
+        </blockquote>
+        <p class="src"><strong>Primary source:</strong> Euclid, <em>The Thirteen Books of Euclid’s “Elements,”</em> translated by Thomas Little Heath. Volume 1, Introduction, Chapter III.</p>
+      </div>
+    </article>
+
+    <div class="block">
+      <h2>How this supports our claim</h2>
+      <div class="body">
+        <p>This evidence shows how influential Hellenistic discoveries in mathematics and science were across many positions in society. It supports our claim that those discoveries changed the original concepts and the lives of many different people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EFFECTS ============ -->
+<section data-page="effects" data-title="Short-Term &amp; Long-Term Effects" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Short-term and long-term effects</h1>
+      <p class="lede">New ideas first improved daily tools and calendars. Over time they became the foundation for Roman and later scholarship.</p>
+      <p class="byline">Page by Brandon</p>
+    </div>
+
+    <div class="block">
+      <h2>Short term</h2>
+      <div class="body">
+        <p>Scholars made new discoveries in mathematics, astronomy, science, art, and engineering. These ideas helped people create better calendars, machines, and scientific ideas for understanding nature.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Long term</h2>
+      <div class="body">
+        <p>Hellenistic mathematics and science influenced Roman scholars. This strong base supported the growth of future ideas, and the work of Euclid and Archimedes became an important foundation for later mathematics, astronomy, and engineering.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Effect diagram</h2>
+      <div class="body">
+        <div class="chain">
+          <div class="short">
+            <h3>Short term</h3>
+            <div class="steps">
+              <div class="step"><h4>New discoveries</h4><p>Mathematics, astronomy, science, art, and engineering.</p></div>
+              <div class="step"><h4>Better tools</h4><p>Calendars, machines, and ways to understand nature.</p></div>
+            </div>
+          </div>
+          <div class="long">
+            <h3>Long term</h3>
+            <div class="steps">
+              <div class="step"><h4>Roman scholars</h4><p>Influenced by Hellenistic work.</p></div>
+              <div class="step"><h4>Later foundations</h4><p>Euclid and Archimedes support mathematics, astronomy, and engineering.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Evidence</h2>
+      <div class="body">
+        <p>The Hellenistic calendar improved farming and helped farmers grow more crops.</p>
+        <p class="src"><strong>Sources:</strong> <a href="https://www.worldhistory.org/article/833/the-athenian-calendar/">World History Encyclopedia, “The Athenian Calendar”</a>, a secondary source that cites the primary source <a href="https://www.perseus.tufts.edu/hopper/text?doc=Diod.+12.36&amp;lang=original">Diodorus 12.36</a>. Also <a href="https://chs.harvard.edu/primary-source/hesiod-works-and-days-sb/">Hesiod, <em>Works and Days</em></a> (primary).</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Two temples</h2>
+      <div class="body">
+        <p>A visual comparison of two temples from different eras shows the long-term effects of Hellenistic art.</p>
+        <div class="figpair">
+          <figure>
+            <img class="fig-img" src="images/pantheon.jpg" alt="The Pantheon in Rome">
+            <figcaption>The Pantheon, Rome.</figcaption>
+          </figure>
+          <figure>
+            <img class="fig-img" src="images/olympian-zeus.jpg" alt="Columns of the Temple of Olympian Zeus in Athens">
+            <figcaption>The Temple of Olympian Zeus, Greece.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VERDICT ============ -->
+<section data-page="verdict" data-title="Final Verdict" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Final verdict</h1>
+      <p class="byline">Page by Lily</p>
+    </div>
+
+    <div class="block">
+      <h2>Our question</h2>
+      <div class="body">
+        <p style="font-family:var(--serif);font-size:1.25rem;line-height:1.4">How did the illumination of mathematics and science transform the initial ideas and reform the life of people during the Hellenistic period?</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Our judgment</h2>
+      <div class="body">
+        <p class="verdict-lead">The illumination of mathematics and science in the Hellenistic period reformed diverse people’s lives by offering logical, verified reasoning in place of undetermined myths, and by inspiring further discoveries and studies.</p>
+        <p>For instance, many social positions were affected, including farmers, military forces, travelers, engineers, scientists, and mathematicians. Euclid built the foundation of geometry, Archimedes gave innovative demonstrations and explanations in engineering and mechanics, and Eratosthenes successfully estimated the size of the Earth.</p>
+        <p>These innovations supported engineering and mechanics used for agricultural, navigational, and military purposes. They also helped scientists, astronomers, and mathematicians study more accurately and precisely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section data-page="sources" data-title="Sources &amp; Process Paper" hidden>
+  <div class="wrap">
+    <div class="pagehead">
+      <h1 tabindex="-1">Sources and process paper</h1>
+      <p class="lede">An annotated bibliography, with primary and secondary sources listed separately.</p>
+    </div>
+    <!-- TODO: convert each entry to a full citation (author, title, publisher, date, URL, access date) in the format your teacher requires. Alphabetize each list by the first word of the citation. -->
+
+    <div class="block">
+      <h2>Primary sources</h2>
+      <div class="body">
+        <ul class="bib">
+          <li><a href="https://www.perseus.tufts.edu/hopper/text?doc=Diod.+12.36&amp;lang=original">Diodorus Siculus, <em>Library of History</em> 12.36</a><p>Primary source cited by the World History Encyclopedia article on the Athenian calendar. Used on the Effects page.</p></li>
+          <li><a href="https://www.ms.uky.edu/~sohum/ma330/files/Elements.pdf">Euclid, <em>Elements</em> (PDF edition)</a><p>Shows how Euclid organized earlier mathematicians’ ideas into the system still used in mathematics today. Used on the Impact page.</p></li>
+          <li>Euclid, <em>The Thirteen Books of Euclid’s “Elements,”</em> translated by Thomas Little Heath<p>Cited for Volume 1: the Preface, Introduction Chapters II and III, and the commentary notes for Book I, Proposition 29. Used on the Perspectives page.</p></li>
+          <li><a href="https://aqua.ciuhct.org/hydraulic-treatises/pneumatica-of-hero-of-alexandria">Hero of Alexandria, <em>Heronis Alexandrini Spiritalium liber</em></a><p>Hero’s work on pneumatic machines. Used on the Perspectives page.</p></li>
+          <li><a href="https://chs.harvard.edu/primary-source/hesiod-works-and-days-sb/">Hesiod, <em>Works and Days</em></a><p>A primary source on farming and the seasons. Used on the Effects page.</p></li>
+          <li><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Marcellus*.html">Plutarch, <em>Life of Marcellus</em></a><p>Plutarch’s account of Archimedes and the siege of Syracuse. Used on the Perspectives page.</p></li>
+          <li><a href="https://classicalliberalarts.com/resources/PTOLEMY_ALMAGEST_ENGLISH.pdf">Ptolemy, <em>Almagest</em>, translated by G. J. Toomer</a><p>Used for the description of Meton’s 19-year calendar cycle (Toomer 12). Used on the Context page.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Secondary sources</h2>
+      <div class="body">
+        <ul class="bib">
+          <li><a href="https://aps.org/publications/apsnews/200606/history.cfm">APS News, on Eratosthenes</a><p>Explains how Eratosthenes figured out the Earth’s circumference and made a map of the known world. Used on the Impact page.</p></li>
+          <li><a href="https://brewminate.com/the-ancient-athenian-calendar/">Brewminate, “The Ancient Athenian Calendar”</a><p>Overview of the Athenian calendar. Used on the Impact page.</p></li>
+          <li><a href="https://www.ebsco.com/research-starters/biography/euclid/">EBSCO Research Starters, “Euclid”</a><p>Describes Euclid’s influence on later scientists and the commentaries later mathematicians wrote on the <em>Elements</em>. Quoted on the Perspectives page.</p></li>
+          <li><a href="https://www.lindahall.org/about/news/scientist-of-the-day/eratosthenes-of-cyrene/">Linda Hall Library, “Eratosthenes of Cyrene”</a><p>Biography of Eratosthenes. Used on the Context page.</p></li>
+          <li><a href="https://mythandmemory.org/military-history/archimedes-war-machines-syracuse/">Myth and Memory, on Archimedes’ war machines at Syracuse</a><p>Discusses Archimedes’ military engineering, drawing on Plutarch. Quoted on the Perspectives page, with an image of Archimedes’ ship.</p></li>
+          <li><a href="https://raed.academy/en/history-of-mathematics-elements-of-euclid/">Royal European Academy of Doctors, “History of Mathematics: Elements of Euclid”</a><p>Article on Euclid’s <em>Elements</em>. Used on the Impact page.</p></li>
+          <li><a href="https://thonyc.wordpress.com/2017/06/29/did-eratosthenes-really-measure-the-size-of-the-earth/">The Renaissance Mathematicus, “Did Eratosthenes really measure the size of the Earth?”</a><p>Blog post examining Eratosthenes’ measurement. Used on the Impact page.</p></li>
+          <li>Textbook (add title, author, and publisher)<p>Source of the statement that Hellenistic scientists built a force pump, pneumatic machines, and a steam engine. Used on the Perspectives page.</p></li>
+          <li><a href="https://researchcommons.waikato.ac.nz/entities/publication/38f02e1e-d5a7-4e13-a9c1-e73bb0861ce6">University of Waikato Research Commons, on the Athenian calendar</a><p>Explains how the Athenian calendar worked for people in the Hellenistic period. Used on the Impact page.</p></li>
+          <li><a href="https://www.worldhistory.org/article/833/the-athenian-calendar/">World History Encyclopedia, “The Athenian Calendar”</a><p>A secondary source that cites a primary source (Diodorus 12.36). Used on the Effects page.</p></li>
+          <li><a href="https://www.worldhistory.org/Greek_Astronomy/">World History Encyclopedia, “Greek Astronomy”</a><p>Background on Greek astronomy and the source of the mathematical calendar image. Used on the Context page.</p></li>
+          <li><a href="https://www.worldhistory.org/Pezhetairoi/">World History Encyclopedia, “Pezhetairoi”</a><p>Covers the military reforms of Philip II, the Battle of Issus, and the Battle of Gaugamela. Quoted on the Innovation page. Image: <a href="https://www.worldhistory.org/image/18837/macedonian-phalanx/">“Macedonian Phalanx.”</a></p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Process paper</h2>
+      <div class="body">
+        <p>The process paper explains how we chose our topic, how we researched it, how we built this website, and how our project relates to the theme.</p>
+        <!-- TODO: upload process-paper.pdf next to index.html so this link works -->
+        <p><a href="process-paper.pdf">Read the process paper (PDF)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">Hellenistic Culture: The Advanced Mathematics and Science. World History Project by Elisa, Lily, Haeum, Steve, and Brandon.</div>
+</footer>
+
+<script>
+(function () {
+  var order = ['home','context','innovation','impact','perspectives','effects','verdict','sources'];
+  var pages = {};
+  document.querySelectorAll('[data-page]').forEach(function (p) { pages[p.dataset.page] = p; });
+  var links = document.querySelectorAll('[data-link]');
+  var nav = document.getElementById('nav');
+  var menuBtn = document.querySelector('.menu-btn');
+  var main = document.getElementById('main');
+  var svg = document.getElementById('euclid-svg');
+  var firstRoute = true;
+
+  /* Previous / next links, built from the page order */
+  order.forEach(function (id, i) {
+    var wrap = pages[id].querySelector('.wrap');
+    var html = '<nav class="pager" aria-label="Page navigation">';
+    if (i > 0) {
+      var prev = order[i - 1];
+      html += '<a class="prev" href="#/' + prev + '"><small>Previous</small><span>' + pages[prev].dataset.title + '</span></a>';
+    }
+    if (i < order.length - 1) {
+      var next = order[i + 1];
+      html += '<a class="next" href="#/' + next + '"><small>Next</small><span>' + pages[next].dataset.title + '</span></a>';
+    }
+    html += '</nav>';
+    wrap.insertAdjacentHTML('beforeend', html);
+  });
+
+  /* Euclid drawing */
+  function playDrawing() {
+    if (!svg) return;
+    svg.classList.remove('play');
+    void svg.getBoundingClientRect();
+    svg.classList.add('play');
+  }
+  document.getElementById('replay').addEventListener('click', playDrawing);
+
+  /* Router */
+  function route() {
+    var id = location.hash.replace(/^#\/?/, '') || 'home';
+    if (order.indexOf(id) === -1) id = 'home';
+
+    order.forEach(function (k) { pages[k].hidden = (k !== id); });
+    links.forEach(function (a) {
+      if (a.dataset.link === id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+
+    var title = pages[id].dataset.title;
+    document.title = (id === 'home' ? '' : title + ' | ') + 'Hellenistic Culture: The Advanced Mathematics and Science';
+
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+
+    window.scrollTo(0, 0);
+    if (!firstRoute) {
+      var h1 = pages[id].querySelector('h1');
+      if (h1) h1.focus({ preventScroll: true });
+    }
+    if (id === 'home') playDrawing();
+    firstRoute = false;
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  /* Mobile menu */
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+
+  /* Skip link (a plain #main link would collide with the router) */
+  document.getElementById('skip').addEventListener('click', function (e) {
+    e.preventDefault();
+    main.focus();
+  });
+
+  /* Phalanx grid */
+  var grid = document.getElementById('phalanx-grid');
+  var count = document.getElementById('phalanx-count');
+  var sizeBtns = document.querySelectorAll('.sizes button');
+  function drawPhalanx(n) {
+    var cell = 320 / n, r = cell * 0.36, s = '';
+    for (var y = 0; y < n; y++) {
+      for (var x = 0; x < n; x++) {
+        s += '<circle cx="' + ((x + 0.5) * cell).toFixed(2) + '" cy="' + ((y + 0.5) * cell).toFixed(2) +
+             '" r="' + r.toFixed(2) + '" class="' + (y < 4 ? 'front' : 'rear') + '"/>';
+      }
+    }
+    grid.innerHTML = s;
+    count.textContent = n + ' × ' + n + ' formation: ' + (n * n) + ' soldiers';
+    sizeBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.n === n)); });
+  }
+  sizeBtns.forEach(function (b) {
+    b.addEventListener('click', function () { drawPhalanx(+b.dataset.n); });
+  });
+  drawPhalanx(16);
+
+  /* Show a labeled placeholder when an image file has not been added yet */
+  document.querySelectorAll('img.fig-img').forEach(function (img) {
+    function swap() {
+      var ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.setAttribute('role', 'img');
+      ph.setAttribute('aria-label', img.alt);
+      ph.textContent = 'Add image file: ' + img.getAttribute('src');
+      img.replaceWith(ph);
+    }
+    if (img.complete && img.naturalWidth === 0) swap();
+    else img.addEventListener('error', swap);
+  });
+})();
+</script>
+</body>
+</html>
